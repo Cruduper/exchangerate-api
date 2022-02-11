@@ -5,18 +5,24 @@ import './css/styles.css';
 import ExchangeService from './js/exchange-service.js';
 
 
+
+function conversion(usd, conversionRate){
+}
 $(document).ready(function() {
   
 
-  $('#submitUSD').click(function() {
-    let newCurrency = $('#newCurrency').val();
-    clearFields();
-    let promise = ExchangeService.convertUSDTo(newCurrency);;
+  $('#submit-usd').click(function() {
+    let usd= $('#usd-input').val();
+    let newCurrency = $('new-curr-input').val();
+    let promise = ExchangeService.convertUsdTo(usd, newCurrency);;
     promise.then(function(response) {
       const body = JSON.parse(response);
-      $('.showConversion').text(`The humidity in ${city} is ${body.main.humidity}%`);
+      $('.show-conversion').text(`with ${usd} you can get ${body}%`);
     }, function(error) {
-      $('.showErrors').text(`There was an error processing your request: ${error}`);
+      $('.show-errors').text(`There was an error processing your request: ${error}`);
     });
   });
 });
+
+
+
