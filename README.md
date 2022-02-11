@@ -1,8 +1,8 @@
-# _{Application Name}_
+# _Exchange Rate Calculator_
 
-#### By _**{List of contributors}**_
+#### By _**Eric Crudup**_
 
-#### _{Brief description of application} [GH-Pages site link](https://cruduper.github.io/!!!!!insert site here!!!!)_
+#### _An application that accesses an exchange rate API to calculate the conversion from USD to other currencies. [GH-Pages site link](https://cruduper.github.io/exchangerate-api)_
 
 ## Technologies Used
 
@@ -12,7 +12,6 @@
 * _Popper.js_
 * _npm_
 * _Webpack_
-* _Jest_
 * _Babel_
 * _ESLint_
 * _HTML_
@@ -20,7 +19,7 @@
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This was built as a test for accessing and using information from API's using promises and XMLhttpRequest's. I was specifically looking to start using some asynchronous code in my programs, and API requests are a great for that. The API used was [ExchangeRate-API](https://app.exchangerate-api.com) because it is free, and allows more than enough API calls to complete the project. The documentation for ExchangeRate-API can be found [here](https://www.exchangerate-api.com/docs/overview)._
 
 ## Setup/Installation Requirements
 
@@ -30,10 +29,18 @@ _{This is a detailed description of your application. Give as much detail as nee
 * _type in '$ npm run build' to build project_
 * _type in '$ npm run start' command to open project in browser and start live server_
 
+## API key setup
+
+*_sign up for free ExchangeRate-API account at this website [here](https://www.exchangerate-api.com/) using your email address_
+*_click on verification email after signing up to get access to an API key_
+*_after verification, sign in and get API key from [your dashboard](https://app.exchangerate-api.com/dashboard)_
+*_consult [documentation](https://www.exchangerate-api.com/docs/overview) if you would like to alter this code to use your key in alternate ways_
+*_after downloading this repo, in the root folder create a file called ".env" (can be done by navigating to root folder in terminal and using $ touch .env command)_
+*_inside of newly created .env file, add an API_KEY variable with your personal API key
+
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _No known bugs_
 
 ## License
 
