@@ -1,3 +1,7 @@
 #show-conversion  {
   display: none;
 }
+
+strong {
+  color: #D44;
+}
