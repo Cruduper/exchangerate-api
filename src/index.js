@@ -23,6 +23,7 @@ $(document).ready(function() {
       $('#show-conversion').text(`with $${usd}, you can get `+ convertedAmt);
       $('#show-conversion').show();
     }, function(error) {
+      const err = JSON.parse(error);
       $('.show-errors').text(`There was an error processing your request: ${error}`);
     });
   });
