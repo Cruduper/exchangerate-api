@@ -2,17 +2,21 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Triangle from './js/demo.js';
+import ExchangeService from './js/exchange-service.js';
 
 
 $(document).ready(function() {
-  $('#triangle-checker-form').submit(function(event) {
-    event.preventDefault();
-    const length1 = $('#length1').val();
-    const length2 = $('#length2').val();
-    const length3 = $('#length3').val();
-    const triangle = new Triangle(length1, length2, length3);
-    const response = triangle.checkType();
-    $('#response').append("<p>" + response + "</p>");
+  
+
+  $('#submitUSD').click(function() {
+    let newCurrency = $('#newCurrency').val();
+    clearFields();
+    let promise = ExchangeService.convertUSDTo(newCurrency);;
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+      $('.showConversion').text(`The humidity in ${city} is ${body.main.humidity}%`);
+    }, function(error) {
+      $('.showErrors').text(`There was an error processing your request: ${error}`);
+    });
   });
 });
