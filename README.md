@@ -2,7 +2,7 @@
 
 #### By _**Eric Crudup**_
 
-#### _An application that accesses an exchange rate API to calculate the conversion from USD to other currencies. [GH-Pages site link](https://cruduper.github.io/exchangerate-api)_
+#### _An application that accesses an exchange rate API to calculate the conversion from USD to other currencies._
 
 ## Technologies Used
 
@@ -19,7 +19,7 @@
 
 ## Description
 
-_This was built as a test for accessing and using information from API's using promises and XMLhttpRequest's. I was specifically looking to start using some asynchronous code in my programs, and API requests are a great for that. The API used was [ExchangeRate-API](https://app.exchangerate-api.com) because it is free, and allows more than enough API calls to complete the project. The documentation for ExchangeRate-API can be found [here](https://www.exchangerate-api.com/docs/overview)._
+_This was built as a test for accessing and using information from API's using promises and XMLhttpRequest's. I was specifically looking to start using some asynchronous code in my programs, and API requests are a great for that. The API used was [ExchangeRate-API](https://app.exchangerate-api.com) because it is free, and allows more than enough API calls to complete the project. The documentation for ExchangeRate-API can be found [here](https://www.exchangerate-api.com/docs/overview). No Github Pages link for this project, as without an intermediary server to obfuscate my API key, my personal key would be exposed._
 
 ## Setup/Installation Requirements
 
