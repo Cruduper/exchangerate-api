@@ -16,11 +16,12 @@ $(document).ready(function() {
     promise.then(function(response) {
       const body = JSON.parse(response);
       const convertedAmt = convertFromUsd( usd, parseFloat(body.conversion_rate) );
-      $('#show-conversion').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
-      $('#show-conversion').show();
+      $('#show-info').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
+      $('#show-info').show();
     }, function(error) {
       const err = JSON.parse(error)["error-type"];
-      $('#show-errors').html(`There was an error processing your request: <strong>${err}</strong>`);
+      $('#show-info').html(`There was an error processing your request: <strong>${err}</strong>`);
+      $('#show-info').show();
     });
   });
 });
