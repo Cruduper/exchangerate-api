@@ -4,15 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ExchangeService from './js/exchange-service.js';
 
-
-
 function convertFromUsd(usd, conversionRate)  {
-
   return Math.round(((usd * conversionRate) + Number.EPSILON) * 100) / 100;
 }
 
 $(document).ready(function() {
-
   $('#submit-usd').click(function() {
     let usd= parseFloat( $('#usd-input').val() );
     let newCurrency = $('#new-curr-input').val();
@@ -20,7 +16,7 @@ $(document).ready(function() {
     promise.then(function(response) {
       const body = JSON.parse(response);
       const convertedAmt = convertFromUsd( usd, parseFloat(body.conversion_rate) );
-      $('#show-conversion').text(`with $${usd}, you can get `+ convertedAmt);
+      $('#show-conversion').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
       $('#show-conversion').show();
     }, function(error) {
       const err = JSON.parse(error)["error-type"];
