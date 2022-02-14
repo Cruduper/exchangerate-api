@@ -12,9 +12,9 @@ $(document).ready(function() {
   $('#submit-usd').click(function() {
     let usd= parseFloat( $('#usd-input').val() );
     let newCurrency = $('#new-curr-input').val();
-    let promise = ExchangeService.getExchange(newCurrency);
-    promise.then(function(response) {
-      const body = JSON.parse(response);
+    let prom = ExchangeService.getExchange(newCurrency);
+    prom.then(function(respon) {
+      const body = JSON.parse(respon);
       const convertedAmt = convertFromUsd( usd, parseFloat(body.conversion_rate) );
       $('#show-info').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
       $('#show-info').show();
