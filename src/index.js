@@ -22,13 +22,12 @@ $(document).ready(function() {
       }, 
       function(reject) {
         
-        if (reject.onreadystatechange != null) {
-          const rej = JSON.parse(reject.response);
+        if (reject.status != 0) {
+          const rej = JSON.parse(reject.response)["error-type"];
           //const rejec = JSON.parse(respon)["error-type"]
           $('#show-info').html(`There was an error processing your request:<strong> ${rej}</strong>`);
         } else {
-          
-          $('#show-info').html(`There was a ${reject.status} error processing your request: <strong>${reject.statusText}</strong>`);
+          $('#show-info').html(`Request Failed!`);
         }
         $('#show-info').show();
       });
