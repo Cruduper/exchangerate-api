@@ -13,16 +13,25 @@ $(document).ready(function() {
     let usd= parseFloat( $('#usd-input').val() );
     let newCurrency = $('#new-curr-input').val();
     let prom = ExchangeService.getExchange(newCurrency);
-    prom.then(function(respon) {
-      const body = JSON.parse(respon);
-      const convertedAmt = convertFromUsd( usd, parseFloat(body.conversion_rate) );
-      $('#show-info').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
-      $('#show-info').show();
-    }, function(error) {
-      const err = JSON.parse(error)["error-type"];
-      $('#show-info').html(`There was an error processing your request: <strong>${err}</strong>`);
-      $('#show-info').show();
-    });
+    prom.then(
+      function(respon) {
+        const body = JSON.parse(respon);
+        const convertedAmt = convertFromUsd( usd, parseFloat(body.conversion_rate) );
+        $('#show-info').text(`with ${usd} USD, you can get `+ convertedAmt + ` ` + newCurrency.toUpperCase());
+        $('#show-info').show();
+      }, 
+      function(reject) {
+        
+        if (reject.onreadystatechange != null) {
+          const rej = JSON.parse(reject.response);
+          //const rejec = JSON.parse(respon)["error-type"]
+          $('#show-info').html(`There was an error processing your request:<strong> ${rej}</strong>`);
+        } else {
+          
+          $('#show-info').html(`There was a ${reject.status} error processing your request: <strong>${reject.statusText}</strong>`);
+        }
+        $('#show-info').show();
+      });
   });
 });
 

@@ -7,9 +7,12 @@ export default class ExchangeService {
         if (this.status === 200) {
           resolve(request.response);
         } else {
-          reject(request.response);
+          reject(request);
         }
       };
+      request.onerror = function() {
+        reject(request);
+      }
       request.open("GET", url, true);
       request.send();
     });
